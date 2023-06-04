@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AscendImg from "../images/ascend.jpg"
+import { Link } from "react-router-dom";
 
 function Login () {
     const [username, setUsername] = useState("");
@@ -19,14 +20,12 @@ function Login () {
                     <input className='w-full text-black p-1 rounded-md' type="password" value={password} onChange={x => setPassword(x.target.value)} />
                     <button type="Submit" className="mt-7 mb-3 border border-black-150 p-2 w-[80%] hover:border-blue-600 hover:scale-103 hover:bg-blue-600 hover:text-white duration-300">Log In</button>
                     <p>Don't have an account?</p>
-                    <a className="text-blue-500" href="\">Sign up here!</a>
+                    <Link to="/Signup" className="text-blue-500">Sign up here!</Link>
                 </form>
             </div>
         </div>
     )
 }
-
-
 
 
 export default Login;
