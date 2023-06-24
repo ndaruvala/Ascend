@@ -19,7 +19,6 @@ function Signup() {
         const birthdayAttr = new CognitoUserAttribute({Name: 'birthdate', Value: birthday});
         const phoneNumberAttr = new CognitoUserAttribute({Name: 'phone_number', Value: phoneNumber})
 
-        const attributes = []
         UserPool.signUp(email, password, [firstNameAttr, lastNameAttr, birthdayAttr, phoneNumberAttr], null, (err, data) => {
             if (err) {
                 console.error(err);
