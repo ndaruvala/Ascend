@@ -3,6 +3,7 @@ import AscendImg from "../images/ascend.jpg";
 import {Link} from "react-router-dom";
 import UserPool from "../UserPool";
 import {CognitoUserAttribute} from "amazon-cognito-identity-js";
+import axios from "axios";
 
 function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -18,13 +19,19 @@ function Signup() {
         const lastNameAttr = new CognitoUserAttribute({Name: 'family_name', Value: lastName});
         const birthdayAttr = new CognitoUserAttribute({Name: 'birthdate', Value: birthday});
         const phoneNumberAttr = new CognitoUserAttribute({Name: 'phone_number', Value: phoneNumber})
+        const fullUserData = {firstNameAttr, lastNameAttr, birthdayAttr, phoneNumberAttr};
 
         UserPool.signUp(email, password, [firstNameAttr, lastNameAttr, birthdayAttr, phoneNumberAttr], null, (err, data) => {
             if (err) {
                 console.error(err);
-            } else {
-                // DATA IS HERE!
-                console.log(data);
+                return;
+            }
+            try {
+                const response = axios.post(
+                    "http://localhost:8080/api/users/signup", fullUserData);
+                console.log(`Sent user data:,${response}`);
+            } catch (e) {
+                console.error(e);
             }
         })
     };
