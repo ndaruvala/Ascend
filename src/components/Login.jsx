@@ -4,9 +4,6 @@ import {Link} from "react-router-dom";
 import {CognitoUser, AuthenticationDetails} from "amazon-cognito-identity-js";
 import UserPool from "../UserPool";
 
-
-console.log("gi");
-
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
