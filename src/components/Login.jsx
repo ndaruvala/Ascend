@@ -1,18 +1,20 @@
 import React, { useState, useContext } from "react";
 import { AccountContext } from "../Account";
 import AscendImg from "../images/ascend.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authenticate } = useContext(AccountContext);
+  const navigate  = useNavigate();
 
   const submitInfo = async (event) => {
     event.preventDefault();
     authenticate(email, password)
       .then((data) => {
         console.log("Logged in!", data);
+        navigate("/");
       })
       .catch((err) => {
         console.error("Failed to login", err);

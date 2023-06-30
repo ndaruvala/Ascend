@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AccountContext } from "./Account";
+import {redirect} from "react-router-dom"
+import Dashboard from "./components/Dashboard";
+import Signup from "./components/Signup";
 
 const Status = () => {
   const [status, setStatus] = useState(false);
 
-  const { getSession, logout } = useContext(AccountContext);
+  const { getSession } = useContext(AccountContext);
 
   useEffect(() => {
     getSession()
@@ -14,13 +17,12 @@ const Status = () => {
       })
       .catch((err) => {
         console.error(err);
+        setStatus(false);
       });
   }, []);
 
   return (
-    <div>
-      {status ? <button onClick={logout}>Logout</button> : "Please login"}
-    </div>
+    status ? <Dashboard /> : <Signup />
   );
 };
 

@@ -1,18 +1,17 @@
 import React from "react";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import { Account } from "./Account";
-import { Route, Routes } from "react-router-dom";
 import Status from "./Status";
+import Login from "./components/Login";
+import { Account} from "./Account";
+import { Route, Routes, Router} from "react-router";
+
 
 function App() {
   return (
     <Account>
-      <Status />?
-      <Routes>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Login />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Status />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
     </Account>
   );
 }

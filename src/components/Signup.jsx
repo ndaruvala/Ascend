@@ -118,7 +118,7 @@ function Signup() {
             Sign Up
           </button>
           <p>Already have an account?</p>
-          <Link to="/" className="text-blue-500 underline">
+          <Link to="/login" className="text-blue-500 underline">
             Log in here!
           </Link>
         </form>
