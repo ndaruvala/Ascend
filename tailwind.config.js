@@ -23,6 +23,22 @@ module.exports = {
       accent1: "#5DE0E6",
       secondary: "#004AAC",
     },
+    extend: {
+      gridTemplateRows: {
+        // Simple 8 row grid
+        12: "repeat(12, minmax(0, 1fr))",
+
+        // Complex site-specific row configuration
+        layout: "200px minmax(900px, 1fr) 100px",
+      },
+      gridTemplateColumns: {
+        // Simple 8 row grid
+        24: "repeat(24, minmax(0, 1fr))",
+
+        // Complex site-specific row configuration
+        layout: "200px minmax(900px, 1fr) 100px",
+      },
+    },
   },
   plugins: [],
 };
