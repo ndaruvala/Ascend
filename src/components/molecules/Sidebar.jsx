@@ -26,7 +26,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-between col-start-1 col-span-3 row-start-1 h-screen p-2 bg-surface0 border-r border-border1">
+    <div className="flex flex-col items-center justify-between col-start-1 col-span-3 row-start-1 h-screen p-2 bg-surface1 border-r border-border1">
       <div className="flex flex-col items-center w-full space-y-2">
         <img src={logo} alt="CompanyLogo" className="mb-[2rem] mt-[1rem]" />
         {sideBarLinks.map(({ id, content }) => (
@@ -34,7 +34,7 @@ const Sidebar = () => {
             key={id}
             className="flex flex-row jusitfy-around items-center w-[90%] text-white bg-gray-800 rounded-lg"
           >
-            <button className="text-[1.1rem] flex flex-row items-center md:gap-3 sm:py-[1rem] sm:px-[1rem] justify-center rounded-lg w-full text-[#FFFFFF] hover:bg-surface1 active:text-accent1 active:bg-surface1 font-bold">
+            <button className="text-[1.1rem] flex flex-row items-center md:gap-3 sm:py-[1rem] sm:px-[1rem] justify-center rounded-lg w-full text-[#FFFFFF] hover:bg-surface0 active:text-accent1 active:bg-surface1 font-bold">
               <img
                 src={dashboardLogo}
                 alt="dashboardIcon"
